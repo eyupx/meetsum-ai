@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed": "#301400",
+                    "tertiary-container": "#db761f",
+                    "on-error-container": "#ffdad6",
+                    "error-container": "#93000a",
+                    "surface": "#12121d",
+                    "primary-fixed": "#e3dfff",
+                    "inverse-surface": "#e3e0f1",
+                    "outline-variant": "#464555",
+                    "on-secondary-container": "#005441",
+                    "on-surface-variant": "#c7c4d8",
+                    "surface-variant": "#343440",
+                    "on-error": "#690005",
+                    "background": "#12121d",
+                    "surface-dim": "#12121d",
+                    "outline": "#918fa1",
+                    "on-primary": "#2000a4",
+                    "surface-container": "#1f1e2a",
+                    "primary": "#c4c0ff",
+                    "on-secondary-fixed-variant": "#00513f",
+                    "on-tertiary-container": "#461f00",
+                    "on-primary-fixed-variant": "#3622ca",
+                    "secondary": "#41eec2",
+                    "secondary-fixed": "#55fcd0",
+                    "surface-bright": "#383845",
+                    "on-primary-fixed": "#100069",
+                    "on-background": "#e3e0f1",
+                    "tertiary": "#ffb785",
+                    "on-surface": "#e3e0f1",
+                    "surface-container-lowest": "#0d0d18",
+                    "surface-container-low": "#1b1a26",
+                    "on-secondary-fixed": "#002118",
+                    "surface-tint": "#c4c0ff",
+                    "primary-container": "#8781ff",
+                    "inverse-primary": "#4f44e2",
+                    "inverse-on-surface": "#302f3b",
+                    "tertiary-fixed-dim": "#ffb785",
+                    "error": "#ffb4ab",
+                    "tertiary-fixed": "#ffdcc6",
+                    "on-tertiary-fixed-variant": "#713700",
+                    "on-tertiary": "#502500",
+                    "on-secondary": "#00382b",
+                    "surface-container-highest": "#343440",
+                    "on-primary-container": "#1b0091",
+                    "surface-container-high": "#292935",
+                    "primary-fixed-dim": "#c4c0ff",
+                    "secondary-fixed-dim": "#28dfb5",
+                    "secondary-container": "#00d1a7"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-card {
+            background: rgba(52, 52, 64, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(196, 192, 255, 0.05);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface selection:bg-primary/30 min-h-screen">
+<!-- SideNavBar Shell -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-[#1b1a26] dark:bg-slate-900/80 backdrop-blur-xl flex flex-col py-8 px-4 shadow-[20px_0_40px_rgba(196,192,255,0.03)] z-50 hidden md:flex">
+<div class="mb-10 px-4">
+<h1 class="text-2xl font-black tracking-tighter text-[#c4c0ff] uppercase">MeetSum AI</h1>
+<p class="text-xs font-medium tracking-widest text-slate-500 uppercase mt-1">AI Executive</p>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-[#292935]/50 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="tracking-tight">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-[#292935]/50 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+<span class="tracking-tight">Yeni Özet</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-[#292935]/50 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="tracking-tight">Toplantılarım</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-[#292935]/50 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="tracking-tight">Profil</span>
+</a>
+<!-- Active Tab: Ayarlar -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-[#c4c0ff] font-bold border-r-2 border-[#c4c0ff] bg-[#292935]/50 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="tracking-tight">Ayarlar</span>
+</a>
+</nav>
+<div class="mt-auto">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:text-error transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="tracking-tight">Çıkış Yap</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-64 min-h-screen">
+<!-- TopNavBar Shell -->
+<header class="fixed top-0 right-0 w-full md:w-[calc(100%-16rem)] h-16 bg-[#12121d]/50 backdrop-blur-md flex items-center px-8 z-40 justify-end">
+<div class="flex items-center gap-3 pl-4 border-l border-surface-container-low ml-auto">
+<span class="text-sm font-medium text-on-surface">Eyüp</span>
+<img alt="Eyüp" class="w-8 h-8 rounded-full border border-primary/20 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDODBRF0LDDtdYJ6KQMFaM8NkIoNesV6aLk33y-6qhsJuCpj6onT1e7hXPNYkORme49-pC6nfakR83DhwLPJ0HxnZdZkuOGxNC9cZYY3qdeaG3EbRCVmM285TM6DQwjCeG7COj77uKeX17usIZxG0cnTtU5B-ihgu29isxMw99hM74ZUcgQ00zrVlWtKcmk1xADszVwKvWFlumQ9eitblXjmMlq4plxHqNHv1tN0pPXg_ACHNRInowyMMSMb3h0vK0iCKp_Gi4m_RTV"/>
+</div>
+</header>
+<!-- Content Canvas -->
+<div class="p-8 pt-24 max-w-6xl mx-auto">
+<header class="mb-10">
+<h2 class="text-3xl font-extrabold text-on-surface tracking-tight">Ayarlar</h2>
+<p class="text-on-surface-variant text-lg">Uygulama tercihlerinizi özelleştirin</p>
+</header>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+<!-- Genel Ayarlar -->
+<section class="glass-card rounded-xl p-8 flex flex-col gap-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="tune">tune</span>
+<h3 class="text-lg font-bold tracking-tight">Genel Ayarlar</h3>
+</div>
+<div class="space-y-6">
+<div class="flex items-center justify-between">
+<span class="text-sm font-medium">Dil</span>
+<select class="bg-surface-container-lowest text-sm rounded-lg border-none focus:ring-1 focus:ring-primary/20 px-4 py-2 min-w-[140px] text-on-surface cursor-pointer">
+<option selected="">Türkçe</option>
+<option>English</option>
+<option>Deutsch</option>
+</select>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-sm font-medium">Tema</span>
+<div class="flex items-center gap-1 bg-surface-container-lowest p-1 rounded-full border border-outline-variant/30">
+<button class="px-5 py-1.5 text-xs font-bold rounded-full bg-primary text-on-primary shadow-sm">Koyu</button>
+<button class="px-5 py-1.5 text-xs font-medium text-on-surface-variant hover:text-on-surface transition-colors">Açık</button>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-sm font-medium">Bildirimler</span>
+<button class="w-11 h-6 bg-[#6C63FF] rounded-full relative transition-all cursor-pointer shadow-inner">
+<span class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full shadow-sm transition-transform"></span>
+</button>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-sm font-medium">E-posta Bildirimleri</span>
+<button class="w-11 h-6 bg-[#6C63FF] rounded-full relative transition-all cursor-pointer shadow-inner">
+<span class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full shadow-sm transition-transform"></span>
+</button>
+</div>
+</div>
+</section>
+<!-- Özetleme Ayarları -->
+<section class="glass-card rounded-xl p-8 flex flex-col gap-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary" data-icon="auto_awesome">auto_awesome</span>
+<h3 class="text-lg font-bold tracking-tight">Özetleme Ayarları</h3>
+</div>
+<div class="space-y-6">
+<div class="flex items-center justify-between">
+<span class="text-sm font-medium">Özet Uzunluğu</span>
+<select class="bg-surface-container-lowest text-sm rounded-lg border-none focus:ring-1 focus:ring-primary/20 px-4 py-2 min-w-[140px] text-on-surface cursor-pointer">
+<option>Kısa</option>
+<option selected="">Orta</option>
+<option>Detaylı</option>
+</select>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-sm font-medium">Otomatik Eylem Maddeleri</span>
+<button class="w-11 h-6 bg-[#6C63FF] rounded-full relative transition-all cursor-pointer shadow-inner">
+<span class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full shadow-sm transition-transform"></span>
+</button>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-sm font-medium">Otomatik Karar Takibi</span>
+<button class="w-11 h-6 bg-[#6C63FF] rounded-full relative transition-all cursor-pointer shadow-inner">
+<span class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full shadow-sm transition-transform"></span>
+</button>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-sm font-medium">Dil Analizi</span>
+<select class="bg-surface-container-lowest text-sm rounded-lg border-none focus:ring-1 focus:ring-primary/20 px-4 py-2 min-w-[140px] text-on-surface cursor-pointer">
+<option selected="">Türkçe</option>
+<option>English</option>
+</select>
+</div>
+</div>
+</section>
+<!-- Plan Bilgisi (Full Width Row) -->
+<section class="glass-card rounded-xl p-8 flex flex-col gap-6 lg:col-span-2">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-container" data-icon="workspace_premium">workspace_premium</span>
+<h3 class="text-lg font-bold tracking-tight">Plan Bilgisi</h3>
+</div>
+<div class="bg-surface-container-lowest p-6 md:p-8 rounded-xl border border-primary/10 max-w-4xl mx-auto w-full">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="text-[10px] text-primary uppercase font-black tracking-widest">Mevcut Plan</p>
+<h4 class="text-xl font-bold">Ücretsiz Plan</h4>
+</div>
+<span class="material-symbols-outlined text-primary/40 text-3xl" data-icon="cloud_done">cloud_done</span>
+</div>
+<div class="mb-6">
+<div class="flex justify-between items-center mb-2">
+<span class="text-xs font-medium text-on-surface-variant">Kullanım</span>
+<span class="text-xs font-bold text-primary">5 / 5 Toplantı</span>
+</div>
+<div class="w-full h-2.5 bg-surface-variant rounded-full overflow-hidden">
+<div class="w-full h-full bg-gradient-to-r from-primary to-primary-container"></div>
+</div>
+<p class="text-[10px] text-error mt-3 font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="error">error</span>
+                            Bu ayki toplantı limitinize ulaştınız.
+                        </p>
+</div>
+<button class="w-full py-3.5 bg-gradient-to-br from-primary-container to-primary text-on-primary-container font-black rounded-xl shadow-lg shadow-primary/20 hover:scale-[1.01] active:scale-95 transition-all text-sm uppercase tracking-wider">
+                        Pro'ya Yükselt
+                    </button>
+</div>
+</section>
+<!-- Actions -->
+<div class="lg:col-span-2 flex justify-end pt-4 mb-20 md:mb-8">
+<button class="px-12 py-4 bg-gradient-to-br from-primary to-primary-container text-on-primary-container font-black rounded-2xl shadow-xl shadow-primary/20 hover:shadow-primary/40 active:scale-95 transition-all tracking-tight uppercase text-sm">
+                    Değişiklikleri Kaydet
+                </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Nav for Mobile -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-[#1b1a26] flex justify-around items-center py-3 px-2 z-50 shadow-[0_-10px_30px_rgba(0,0,0,0.5)]">
+<a class="flex flex-col items-center gap-1 text-slate-500" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-[10px] font-bold uppercase">Dashboard</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-500" href="#">
+<span class="material-symbols-outlined" data-icon="event_note">event_note</span>
+<span class="text-[10px] font-bold uppercase">Toplantılar</span>
+</a>
+<div class="bg-gradient-to-br from-primary to-primary-container p-3.5 rounded-full -mt-10 shadow-lg border-4 border-surface shadow-primary/20">
+<span class="material-symbols-outlined text-on-primary-container font-black" data-icon="add">add</span>
+</div>
+<a class="flex flex-col items-center gap-1 text-slate-500" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-[10px] font-bold uppercase">Profil</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-[#c4c0ff]" href="#">
+<span class="material-symbols-outlined" data-icon="settings" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span class="text-[10px] font-bold uppercase">Ayarlar</span>
+</a>
+</nav>
+</body></html>

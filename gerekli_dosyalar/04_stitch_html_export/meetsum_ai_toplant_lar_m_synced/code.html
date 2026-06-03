@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(52, 52, 64, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(196, 192, 255, 0.05);
+        }
+        .glass-card:hover {
+            background: rgba(52, 52, 64, 0.6);
+            border: 1px solid rgba(196, 192, 255, 0.15);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-variant": "#343440",
+                      "tertiary-fixed": "#ffdcc6",
+                      "surface-container-low": "#1b1a26",
+                      "on-error": "#690005",
+                      "background": "#12121d",
+                      "on-secondary-fixed": "#002118",
+                      "tertiary": "#ffb785",
+                      "primary-container": "#8781ff",
+                      "on-primary": "#2000a4",
+                      "secondary-container": "#00d1a7",
+                      "surface-container-lowest": "#0d0d18",
+                      "on-tertiary-container": "#461f00",
+                      "tertiary-fixed-dim": "#ffb785",
+                      "surface-container": "#1f1e2a",
+                      "outline": "#918fa1",
+                      "on-tertiary": "#502500",
+                      "tertiary-container": "#db761f",
+                      "surface-tint": "#c4c0ff",
+                      "on-error-container": "#ffdad6",
+                      "inverse-on-surface": "#302f3b",
+                      "on-secondary-fixed-variant": "#00513f",
+                      "surface-container-highest": "#343440",
+                      "outline-variant": "#464555",
+                      "on-surface": "#e3e0f1",
+                      "on-background": "#e3e0f1",
+                      "surface-bright": "#383845",
+                      "primary-fixed": "#e3dfff",
+                      "secondary": "#41eec2",
+                      "on-secondary-container": "#005441",
+                      "error": "#ffb4ab",
+                      "secondary-fixed-dim": "#28dfb5",
+                      "on-tertiary-fixed-variant": "#713700",
+                      "inverse-surface": "#e3e0f1",
+                      "surface-dim": "#12121d",
+                      "primary-fixed-dim": "#c4c0ff",
+                      "on-primary-fixed-variant": "#3622ca",
+                      "surface-container-high": "#292935",
+                      "inverse-primary": "#4f44e2",
+                      "on-tertiary-fixed": "#301400",
+                      "secondary-fixed": "#55fcd0",
+                      "on-secondary": "#00382b",
+                      "primary": "#c4c0ff",
+                      "on-primary-container": "#1b0091",
+                      "error-container": "#93000a",
+                      "on-surface-variant": "#c7c4d8",
+                      "on-primary-fixed": "#100069",
+                      "surface": "#12121d"
+              },
+              "fontFamily": {
+                      "headline": ["Inter"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              }
+            },
+          }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body antialiased">
+<!-- SideNavBar Shell -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-[#1b1a26] dark:bg-slate-900/80 backdrop-blur-xl flex flex-col py-8 px-4 shadow-[20px_0_40px_rgba(196,192,255,0.03)] z-50">
+<div class="mb-10 px-4">
+<h1 class="text-2xl font-black tracking-tighter text-[#c4c0ff] uppercase">MeetSum AI</h1>
+<p class="text-xs font-medium tracking-widest text-slate-500 uppercase mt-1">AI Executive</p>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-[#292935]/50 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="tracking-tight">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-[#292935]/50 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+<span class="tracking-tight">Yeni Özet</span>
+</a>
+<!-- Active Tab: Toplantılarım -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-[#c4c0ff] font-bold border-r-2 border-[#c4c0ff] bg-[#292935]/50 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="tracking-tight">Toplantılarım</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-[#292935]/50 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="tracking-tight">Profil</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-[#292935]/50 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="tracking-tight">Ayarlar</span>
+</a>
+</nav>
+<div class="mt-auto">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:text-error transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="tracking-tight">Çıkış Yap</span>
+</a>
+</div>
+</aside>
+<!-- TopNavBar Shell -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] h-16 bg-[#12121d]/50 backdrop-blur-md flex justify-between items-center px-8 z-40">
+<div class="flex items-center flex-1 max-w-xl">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-lg">search</span>
+<input class="w-full bg-surface-container-lowest border-none rounded-xl py-2 pl-10 pr-4 text-sm focus:ring-1 focus:ring-primary/20 placeholder:text-slate-600 transition-all" placeholder="Toplantı ara..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-3 pl-4 border-l border-surface-container-low">
+<span class="text-sm font-medium text-on-surface">Eyüp</span>
+<img alt="Eyüp" class="w-8 h-8 rounded-full border border-primary/20 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDODBRF0LDDtdYJ6KQMFaM8NkIoNesV6aLk33y-6qhsJuCpj6onT1e7hXPNYkORme49-pC6nfakR83DhwLPJ0HxnZdZkuOGxNC9cZYY3qdeaG3EbRCVmM285TM6DQwjCeG7COj77uKeX17usIZxG0cnTtU5B-ihgu29isxMw99hM74ZUcgQ00zrVlWtKcmk1xADszVwKvWFlumQ9eitblXjmMlq4plxHqNHv1tN0pPXg_ACHNRInowyMMSMb3h0vK0iCKp_Gi4m_RTV"/>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="ml-64 pt-28 p-8 min-h-screen">
+<!-- Page Title & Subtitle -->
+<div class="mb-10">
+<h2 class="text-4xl font-black tracking-tight text-on-surface mb-2">Toplantılarım</h2>
+<p class="text-on-surface-variant font-medium">Tüm toplantı özetlerinizi buradan yönetin</p>
+</div>
+<!-- Filter & Search Section -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
+<div class="flex items-center gap-2 bg-surface-container-low p-1 rounded-xl">
+<button class="px-6 py-2 text-sm font-semibold rounded-lg bg-[#292935] text-[#c4c0ff] shadow-sm">Tümü</button>
+<button class="px-6 py-2 text-sm font-medium rounded-lg text-slate-400 hover:text-slate-200 transition-colors">Bu Hafta</button>
+<button class="px-6 py-2 text-sm font-medium rounded-lg text-slate-400 hover:text-slate-200 transition-colors">Bu Ay</button>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative group">
+<button class="flex items-center gap-2 bg-surface-container-low px-4 py-2.5 rounded-xl border border-outline-variant/10 text-sm font-medium text-on-surface hover:bg-surface-container transition-all">
+<span>Tarihe Göre</span>
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Meeting List (Editorial Layout) -->
+<div class="space-y-4 mb-12">
+<!-- Meeting 1 -->
+<div class="glass-card flex items-center p-5 rounded-2xl group cursor-pointer transition-all duration-300">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-[#c4c0ff] mr-6 shrink-0">
+<span class="material-symbols-outlined">groups</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-3 mb-1">
+<h3 class="font-bold text-on-surface truncate">Haftalık Senkronizasyon - Tasarım Ekibi</h3>
+<span class="px-2.5 py-0.5 text-[10px] font-black uppercase tracking-widest bg-secondary/10 text-secondary border border-secondary/20 rounded-full">Tamamlandı</span>
+</div>
+<div class="flex items-center gap-4 text-xs text-slate-400">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">calendar_today</span> Dün, 14:00</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">schedule</span> 45 dakika</span>
+</div>
+<p class="text-sm text-on-surface-variant mt-2 line-clamp-1 opacity-70">Toplantıda yeni tasarım sisteminin uygulama aşamaları ve kütüphane güncellemeleri tartışıldı...</p>
+</div>
+<div class="flex items-center gap-4 ml-6">
+<span class="material-symbols-outlined text-slate-500 group-hover:text-[#c4c0ff] transition-colors">chevron_right</span>
+</div>
+</div>
+<!-- Meeting 2 -->
+<div class="glass-card flex items-center p-5 rounded-2xl group cursor-pointer transition-all duration-300">
+<div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center text-secondary mr-6 shrink-0">
+<span class="material-symbols-outlined">handshake</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-3 mb-1">
+<h3 class="font-bold text-on-surface truncate">Müşteri Görüşmesi: Global Tech</h3>
+<span class="px-2.5 py-0.5 text-[10px] font-black uppercase tracking-widest bg-secondary/10 text-secondary border border-secondary/20 rounded-full">Tamamlandı</span>
+</div>
+<div class="flex items-center gap-4 text-xs text-slate-400">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">calendar_today</span> 12 Ekim 2023, 10:30</span>
+</div>
+<p class="text-sm text-on-surface-variant mt-2 line-clamp-1 opacity-70">Q4 hedefleri ve entegrasyon süreçlerinin zaman çizelgesi üzerinde mutabık kalındı.</p>
+</div>
+<div class="flex items-center gap-4 ml-6">
+<span class="material-symbols-outlined text-slate-500 group-hover:text-[#c4c0ff] transition-colors">chevron_right</span>
+</div>
+</div>
+<!-- Meeting 3 -->
+<div class="glass-card flex items-center p-5 rounded-2xl group cursor-pointer transition-all duration-300 border-l-4 border-l-secondary">
+<div class="w-12 h-12 rounded-full bg-tertiary/10 flex items-center justify-center text-tertiary mr-6 shrink-0">
+<span class="material-symbols-outlined">lightbulb</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-3 mb-1">
+<h3 class="font-bold text-on-surface truncate">Brainstorming: Yeni Ürün Özellikleri</h3>
+<span class="px-2.5 py-0.5 text-[10px] font-black uppercase tracking-widest bg-secondary/10 text-secondary border border-secondary/20 rounded-full">Tamamlandı</span>
+</div>
+<div class="flex items-center gap-4 text-xs text-slate-400">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">calendar_today</span> 10 Ekim 2023, 16:00</span>
+</div>
+<p class="text-sm text-on-surface-variant mt-2 line-clamp-1 opacity-70">AI destekli not alma ve otomatik etiketleme özellikleri için MVP kapsamı belirlendi.</p>
+</div>
+<div class="flex items-center gap-4 ml-6">
+<span class="material-symbols-outlined text-slate-500 group-hover:text-[#c4c0ff] transition-colors">chevron_right</span>
+</div>
+</div>
+<!-- Meeting 4 -->
+<div class="glass-card flex items-center p-5 rounded-2xl group cursor-pointer transition-all duration-300">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-[#c4c0ff] mr-6 shrink-0">
+<span class="material-symbols-outlined">view_agenda</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-3 mb-1">
+<h3 class="font-bold text-on-surface truncate">Sprint Planlama Toplantısı</h3>
+<span class="px-2.5 py-0.5 text-[10px] font-black uppercase tracking-widest bg-secondary/10 text-secondary border border-secondary/20 rounded-full">Tamamlandı</span>
+</div>
+<div class="flex items-center gap-4 text-xs text-slate-400">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">calendar_today</span> 8 Ekim 2023, 09:00</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">schedule</span> 30 dakika</span>
+</div>
+<p class="text-sm text-on-surface-variant mt-2 line-clamp-1 opacity-70">Gelecek 2 haftalık periyotta tamamlanacak tasklar ve sorumlular netleştirildi.</p>
+</div>
+<div class="flex items-center gap-4 ml-6">
+<span class="material-symbols-outlined text-slate-500 group-hover:text-[#c4c0ff] transition-colors">chevron_right</span>
+</div>
+</div>
+<!-- Meeting 5 -->
+<div class="glass-card flex items-center p-5 rounded-2xl group cursor-pointer transition-all duration-300">
+<div class="w-12 h-12 rounded-full bg-tertiary-container/10 flex items-center justify-center text-tertiary-container mr-6 shrink-0">
+<span class="material-symbols-outlined animate-pulse">analytics</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-3 mb-1">
+<h3 class="font-bold text-on-surface truncate">Proje Durum Değerlendirmesi</h3>
+<span class="px-2.5 py-0.5 text-[10px] font-black uppercase tracking-widest bg-tertiary-container/10 text-tertiary-container border border-tertiary-container/20 rounded-full">İşleniyor</span>
+</div>
+<div class="flex items-center gap-4 text-xs text-slate-400">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">calendar_today</span> 5 Ekim 2023, 15:00</span>
+</div>
+<p class="text-sm text-on-surface-variant mt-2 line-clamp-1 italic opacity-50">Ses kaydı AI tarafından analiz ediliyor...</p>
+</div>
+<div class="flex items-center gap-4 ml-6">
+<span class="material-symbols-outlined text-slate-500 group-hover:text-[#c4c0ff] transition-colors">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Pagination Shell -->
+<div class="flex items-center justify-center gap-2 pt-8">
+<button class="p-2 rounded-lg text-slate-500 hover:text-white hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">keyboard_double_arrow_left</span>
+</button>
+<button class="px-4 py-2 rounded-lg text-sm font-semibold text-slate-400 hover:text-white">Önceki</button>
+<div class="flex items-center gap-1">
+<button class="w-10 h-10 rounded-lg text-sm font-bold bg-[#6C63FF] text-white">1</button>
+<button class="w-10 h-10 rounded-lg text-sm font-bold text-slate-400 hover:bg-surface-container-high hover:text-white transition-all">2</button>
+<button class="w-10 h-10 rounded-lg text-sm font-bold text-slate-400 hover:bg-surface-container-high hover:text-white transition-all">3</button>
+</div>
+<button class="px-4 py-2 rounded-lg text-sm font-semibold text-slate-400 hover:text-white">Sonraki</button>
+<button class="p-2 rounded-lg text-slate-500 hover:text-white hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">keyboard_double_arrow_right</span>
+</button>
+</div>
+</main>
+</body></html>

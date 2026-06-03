@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MeetSum AI - Yeni Özet</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#343440",
+                        "error-container": "#93000a",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-container": "#db761f",
+                        "surface-container-low": "#1b1a26",
+                        "error": "#ffb4ab",
+                        "on-primary": "#2000a4",
+                        "primary-container": "#8781ff",
+                        "outline-variant": "#464555",
+                        "tertiary": "#ffb785",
+                        "surface-container-highest": "#343440",
+                        "on-tertiary-fixed-variant": "#713700",
+                        "surface-dim": "#12121d",
+                        "on-surface": "#e3e0f1",
+                        "on-primary-fixed": "#100069",
+                        "on-background": "#e3e0f1",
+                        "on-secondary": "#00382b",
+                        "inverse-surface": "#e3e0f1",
+                        "tertiary-fixed": "#ffdcc6",
+                        "outline": "#918fa1",
+                        "on-tertiary": "#502500",
+                        "on-secondary-fixed-variant": "#00513f",
+                        "surface-tint": "#c4c0ff",
+                        "on-error": "#690005",
+                        "primary-fixed-dim": "#c4c0ff",
+                        "tertiary-fixed-dim": "#ffb785",
+                        "secondary-fixed": "#55fcd0",
+                        "secondary": "#41eec2",
+                        "on-primary-container": "#1b0091",
+                        "on-primary-fixed-variant": "#3622ca",
+                        "surface-container-high": "#292935",
+                        "on-surface-variant": "#c7c4d8",
+                        "background": "#12121d",
+                        "on-tertiary-fixed": "#301400",
+                        "on-tertiary-container": "#461f00",
+                        "surface-container-lowest": "#0d0d18",
+                        "surface-bright": "#383845",
+                        "secondary-container": "#00d1a7",
+                        "primary": "#c4c0ff",
+                        "on-secondary-container": "#005441",
+                        "primary-fixed": "#e3dfff",
+                        "inverse-on-surface": "#302f3b",
+                        "surface-container": "#1f1e2a",
+                        "secondary-fixed-dim": "#28dfb5",
+                        "on-secondary-fixed": "#002118",
+                        "inverse-primary": "#4f44e2",
+                        "surface": "#12121d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(52, 52, 64, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .glow-primary {
+            box-shadow: 0 0 20px rgba(196, 192, 255, 0.15);
+        }
+        .glow-secondary {
+            box-shadow: 0 0 20px rgba(65, 238, 194, 0.15);
+        }
+        body {
+            background-color: #12121d;
+            font-family: 'Inter', sans-serif;
+            color: #e3e0f1;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+<!-- SIDE BAR -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-[#1b1a26] dark:bg-slate-900/80 backdrop-blur-xl flex flex-col py-8 px-4 shadow-[20px_0_40px_rgba(196,192,255,0.03)] z-50">
+<div class="mb-10 px-4">
+<h1 class="text-2xl font-black tracking-tighter text-[#c4c0ff] uppercase">MeetSum AI</h1>
+<p class="text-xs font-medium tracking-widest text-slate-500 uppercase mt-1">AI Executive</p>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-[#292935]/50 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="tracking-tight">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-[#c4c0ff] font-bold border-r-2 border-[#c4c0ff] bg-[#292935]/50 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+<span class="tracking-tight">Yeni Özet</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-[#292935]/50 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="tracking-tight">Toplantılarım</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-[#292935]/50 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="tracking-tight">Profil</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-[#292935]/50 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="tracking-tight">Ayarlar</span>
+</a>
+</nav>
+<div class="mt-auto">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:text-error transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="tracking-tight">Çıkış Yap</span>
+</a>
+</div>
+</aside>
+<!-- MAIN WRAPPER -->
+<main class="ml-64 min-h-screen relative">
+<!-- TOP NAVBAR -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] h-16 bg-[#12121d]/50 backdrop-blur-md flex justify-between items-center px-8 z-40"><div class="flex-1"></div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-3 pr-4">
+<span class="text-sm font-medium text-on-surface">Eyüp</span>
+<img alt="Eyüp" class="w-8 h-8 rounded-full border border-primary/20 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDODBRF0LDDtdYJ6KQMFaM8NkIoNesV6aLk33y-6qhsJuCpj6onT1e7hXPNYkORme49-pC6nfakR83DhwLPJ0HxnZdZkuOGxNC9cZYY3qdeaG3EbRCVmM285TM6DQwjCeG7COj77uKeX17usIZxG0cnTtU5B-ihgu29isxMw99hM74ZUcgQ00zrVlWtKcmk1xADszVwKvWFlumQ9eitblXjmMlq4plxHqNHv1tN0pPXg_ACHNRInowyMMSMb3h0vK0iCKp_Gi4m_RTV"/>
+</div>
+</div></header>
+<!-- PAGE CONTENT -->
+<div class="pt-24 pb-12 px-12 max-w-6xl mx-auto">
+<header class="mb-12">
+<h2 class="text-4xl font-extrabold text-white tracking-tight mb-2">Yeni Toplantı Özetle</h2>
+<p class="text-on-surface-variant text-lg">Ses kaydı veya metin dosyası yükleyerek özetinizi oluşturun</p>
+</header>
+<!-- ACTION GRID -->
+<div class="glass-card rounded-3xl p-8 mb-8 border border-white/5 relative overflow-hidden">
+<div class="absolute -top-24 -right-24 w-64 h-64 bg-[#6C63FF]/10 rounded-full blur-[80px]"></div>
+<div class="absolute -bottom-24 -left-24 w-64 h-64 bg-[#00D4AA]/10 rounded-full blur-[80px]"></div>
+<div class="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] items-stretch gap-8 relative z-10">
+<!-- OPTION 1: UPLOAD -->
+<div class="flex flex-col">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary glow-primary">
+<span class="material-symbols-outlined text-3xl" data-icon="mic">mic</span>
+</div>
+<h3 class="text-xl font-bold text-white">Ses Kaydı Yükle</h3>
+</div>
+<div class="flex-1 border-2 border-dashed border-outline-variant hover:border-primary/50 transition-all rounded-2xl p-10 text-center group cursor-pointer bg-surface-container-lowest/30 flex flex-col items-center justify-center">
+<span class="material-symbols-outlined text-5xl text-slate-500 group-hover:text-primary transition-colors mb-4 block" data-icon="cloud_upload">cloud_upload</span>
+<p class="text-on-surface font-medium mb-1">Dosyayı sürükleyin veya tıklayarak seçin</p>
+<p class="text-[10px] text-slate-500 uppercase tracking-widest mb-1">Maksimum: 500MB</p>
+<p class="text-[10px] text-slate-500 font-bold uppercase tracking-wider">MP3, WAV, M4A, WEBM, OGG</p>
+</div>
+</div>
+<!-- DIVIDER -->
+<div class="flex lg:flex-col items-center justify-center py-4 lg:py-0">
+<span class="text-sm font-bold text-slate-500 px-4 py-2 bg-surface-container-high/50 rounded-full">veya</span>
+</div>
+<!-- OPTION 2: TEXT FILE UPLOAD -->
+<div class="flex flex-col">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-12 h-12 rounded-2xl bg-secondary/10 flex items-center justify-center text-secondary glow-secondary">
+<span class="material-symbols-outlined text-3xl" data-icon="description">description</span>
+</div>
+<h3 class="text-xl font-bold text-white">Metin Dosyası Yükle</h3>
+</div>
+<div class="flex-1 border-2 border-dashed border-outline-variant hover:border-secondary/50 transition-all rounded-2xl p-10 text-center group cursor-pointer bg-surface-container-lowest/30 flex flex-col items-center justify-center">
+<span class="material-symbols-outlined text-5xl text-slate-500 group-hover:text-secondary transition-colors mb-4 block" data-icon="cloud_upload">cloud_upload</span>
+<p class="text-on-surface font-medium mb-1">Dosyayı sürükleyin veya tıklayarak seçin</p>
+<p class="text-[10px] text-slate-500 uppercase tracking-widest mb-1">Maksimum: 500MB</p>
+<p class="text-[10px] text-slate-500 font-bold uppercase tracking-wider">TXT, DOCX, PDF</p>
+</div>
+</div>
+</div>
+</div>
+<!-- FORM SECTION -->
+<section class="glass-card rounded-3xl p-8 mb-8 border border-white/5">
+<h4 class="text-lg font-bold text-white mb-8 flex items-center gap-2">
+<span class="w-1.5 h-6 bg-primary rounded-full"></span>
+                    Toplantı Bilgileri
+                </h4>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="space-y-2">
+<label class="text-xs font-bold text-slate-500 uppercase tracking-widest ml-1">Toplantı Adı</label>
+<input class="w-full bg-surface-container-lowest/50 border-none rounded-xl py-3 px-4 text-on-surface focus:ring-1 focus:ring-primary/30" placeholder="Örn: Haftalık Senkronizasyon" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold text-slate-500 uppercase tracking-widest ml-1">Tarih</label>
+<div class="relative">
+<input class="w-full bg-surface-container-lowest/50 border-none rounded-xl py-3 px-4 text-on-surface focus:ring-1 focus:ring-primary/30 [color-scheme:dark]" type="date"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold text-slate-500 uppercase tracking-widest ml-1">Katılımcılar</label>
+<input class="w-full bg-surface-container-lowest/50 border-none rounded-xl py-3 px-4 text-on-surface focus:ring-1 focus:ring-primary/30" placeholder="E-posta adreslerini virgülle ayırın" type="text"/>
+</div>
+</div>
+</section>
+<!-- FINAL CTA -->
+<div class="flex flex-col items-center gap-6">
+<button class="w-full py-6 rounded-2xl bg-gradient-to-r from-primary to-primary-container text-on-primary-container text-xl font-black shadow-lg shadow-primary/20 hover:scale-[1.01] active:scale-[0.98] transition-all flex items-center justify-center gap-3">
+<span class="material-symbols-outlined text-3xl" data-icon="mic" data-weight="fill">mic</span>
+                    Özetlemeyi Başlat
+                </button>
+<div class="flex items-center gap-3 text-slate-400 text-sm">
+<span class="material-symbols-outlined text-primary" data-icon="auto_awesome" data-weight="fill">auto_awesome</span>
+<p>AI toplantınızı analiz edecek ve birkaç dakika içinde özetinizi hazırlayacak</p>
+</div>
+</div>
+<!-- DECORATIVE ELEMENTS -->
+<div class="mt-16 gap-8 flex justify-center">
+<div class="p-6 rounded-2xl bg-surface-container-low/40 border border-white/5 max-w-sm w-full">
+<span class="text-primary-container text-sm font-bold mb-2 block">Akıllı Analiz</span>
+<p class="text-xs text-slate-500 leading-relaxed">Toplantıdaki ana temaları ve karar noktalarını otomatik olarak belirler.</p>
+</div>
+<div class="p-6 rounded-2xl bg-surface-container-low/40 border border-white/5 max-w-sm w-full">
+<span class="text-secondary text-sm font-bold mb-2 block">Görev Takibi</span>
+<p class="text-xs text-slate-500 leading-relaxed">Konuşulan aksiyon maddelerini katılımcılara göre listeler ve takvime ekler.</p>
+</div>
+</div>
+</div>
+<!-- BACKGROUND BLURS -->
+<div class="fixed top-0 left-0 w-full h-full pointer-events-none -z-10 opacity-30">
+<div class="absolute top-[10%] right-[5%] w-[400px] h-[400px] bg-primary/20 rounded-full blur-[120px]"></div>
+<div class="absolute bottom-[20%] left-[10%] w-[300px] h-[300px] bg-secondary/20 rounded-full blur-[100px]"></div>
+</div>
+</main>
+</body></html>

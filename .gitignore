@@ -1,0 +1,9 @@
+﻿# Environment variables
+uygulama/.env
+
+# API keys (hassas bilgiler)
+uygulama/js/api-config.js
+uygulama/js/firebase-config.js
+
+# Temp files
+*.log

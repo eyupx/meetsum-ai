@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MeetSum AI - Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-fixed-dim": "#c4c0ff",
+                      "on-surface": "#e3e0f1",
+                      "on-error-container": "#ffdad6",
+                      "on-tertiary-container": "#461f00",
+                      "on-error": "#690005",
+                      "tertiary": "#ffb785",
+                      "surface-container-highest": "#343440",
+                      "primary-container": "#8781ff",
+                      "primary": "#c4c0ff",
+                      "outline": "#918fa1",
+                      "surface-variant": "#343440",
+                      "on-surface-variant": "#c7c4d8",
+                      "tertiary-container": "#db761f",
+                      "outline-variant": "#464555",
+                      "on-primary-fixed": "#100069",
+                      "error": "#ffb4ab",
+                      "secondary-fixed": "#55fcd0",
+                      "on-primary": "#2000a4",
+                      "surface-tint": "#c4c0ff",
+                      "on-secondary": "#00382b",
+                      "on-secondary-container": "#005441",
+                      "surface-container-high": "#292935",
+                      "surface-bright": "#383845",
+                      "on-background": "#e3e0f1",
+                      "surface-container-low": "#1b1a26",
+                      "background": "#12121d",
+                      "error-container": "#93000a",
+                      "on-tertiary": "#502500",
+                      "inverse-on-surface": "#302f3b",
+                      "secondary-fixed-dim": "#28dfb5",
+                      "surface-container-lowest": "#0d0d18",
+                      "secondary-container": "#00d1a7",
+                      "primary-fixed": "#e3dfff",
+                      "surface-dim": "#12121d",
+                      "on-primary-container": "#1b0091",
+                      "on-secondary-fixed": "#002118",
+                      "surface": "#12121d",
+                      "secondary": "#41eec2",
+                      "on-tertiary-fixed": "#301400",
+                      "inverse-surface": "#e3e0f1",
+                      "tertiary-fixed-dim": "#ffb785",
+                      "on-tertiary-fixed-variant": "#713700",
+                      "on-primary-fixed-variant": "#3622ca",
+                      "inverse-primary": "#4f44e2",
+                      "tertiary-fixed": "#ffdcc6",
+                      "surface-container": "#1f1e2a",
+                      "on-secondary-fixed-variant": "#00513f"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "fontFamily": {
+                      "headline": ["Inter"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass {
+            background: rgba(41, 41, 53, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(196, 192, 255, 0.1);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface selection:bg-primary/30">
+<!-- SideNavBar Shell -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-[#1b1a26] dark:bg-slate-900/80 backdrop-blur-xl flex flex-col px-4 shadow-[20px_0_40px_rgba(196,192,255,0.03)] z-50 pt-8">
+<div class="mb-10 px-4">
+<h1 class="text-2xl font-black tracking-tighter text-[#c4c0ff] uppercase">MeetSum AI</h1>
+<p class="text-xs font-medium tracking-widest text-slate-500 uppercase mt-1">AI Executive</p>
+</div>
+<nav class="flex-1 space-y-2">
+<!-- Active Tab: Dashboard -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-[#c4c0ff] font-bold border-r-2 border-[#c4c0ff] bg-[#292935]/50 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="tracking-tight">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-[#292935]/50 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+<span class="tracking-tight">Yeni Özet</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-[#292935]/50 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="tracking-tight">Toplantılarım</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-[#292935]/50 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="tracking-tight">Profil</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-[#292935]/50 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="tracking-tight">Ayarlar</span>
+</a>
+</nav>
+<div class="mt-auto pb-6">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:text-error transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="tracking-tight">Çıkış Yap</span>
+</a>
+</div>
+</aside>
+<!-- TopNavBar Shell -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] h-16 bg-[#12121d]/50 backdrop-blur-md flex items-center px-8 z-40 justify-end">
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-3 pl-4 border-l border-surface-container-low">
+<span class="text-sm font-medium text-on-surface">Eyüp</span>
+<img alt="Eyüp" class="w-8 h-8 rounded-full border border-primary/20 object-cover" data-alt="Close-up portrait of a professional man with a friendly expression in a modern office environment with soft bokeh background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDODBRF0LDDtdYJ6KQMFaM8NkIoNesV6aLk33y-6qhsJuCpj6onT1e7hXPNYkORme49-pC6nfakR83DhwLPJ0HxnZdZkuOGxNC9cZYY3qdeaG3EbRCVmM285TM6DQwjCeG7COj77uKeX17usIZxG0cnTtU5B-ihgu29isxMw99hM74ZUcgQ00zrVlWtKcmk1xADszVwKvWFlumQ9eitblXjmMlq4plxHqNHv1tN0pPXg_ACHNRInowyMMSMb3h0vK0iCKp_Gi4m_RTV"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-24 px-8 pb-12 min-h-screen">
+<!-- Welcome Section -->
+<section class="mb-10">
+<h2 class="text-4xl font-extrabold tracking-tight text-on-surface mb-2">Hoş Geldin, Eyüp 👋</h2>
+<p class="text-slate-400 text-lg">Toplantılarını özetlemeye başla ve verimliliği artır.</p>
+</section>
+<!-- Bento Grid Stats & CTA -->
+<div class="grid grid-cols-12 gap-6 mb-10">
+<!-- Left Side: Stats Column -->
+<div class="col-span-12 lg:col-span-4 grid grid-cols-1 gap-6">
+<div class="glass p-6 rounded-xl relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-1 h-full bg-secondary"></div>
+<div class="flex justify-between items-start">
+<div>
+<p class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-1">Toplam Özet</p>
+<h3 class="text-3xl font-black text-on-surface">12</h3>
+</div>
+<span class="material-symbols-outlined text-secondary opacity-50" data-icon="auto_awesome">auto_awesome</span>
+</div>
+</div>
+<div class="glass p-6 rounded-xl relative overflow-hidden">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-1">Bu Hafta</p>
+<h3 class="text-3xl font-black text-on-surface">3</h3>
+</div>
+<span class="material-symbols-outlined text-primary opacity-50" data-icon="calendar_today">calendar_today</span>
+</div>
+</div>
+<div class="glass p-6 rounded-xl relative overflow-hidden">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-1">Eylem Maddeleri</p>
+<h3 class="text-3xl font-black text-on-surface">8</h3>
+</div>
+<span class="material-symbols-outlined text-tertiary opacity-50" data-icon="task_alt">task_alt</span>
+</div>
+</div>
+</div>
+<!-- Right Side: Large Prominent CTA -->
+<div class="col-span-12 lg:col-span-8 bg-gradient-to-br from-primary-container to-inverse-primary rounded-xl p-10 flex flex-col justify-center items-start relative overflow-hidden shadow-[0_20px_50px_rgba(79,68,226,0.2)]">
+<div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-20 -mt-20 blur-3xl"></div>
+<div class="relative z-10">
+<h2 class="text-3xl font-bold text-white mb-4 max-w-sm">Yeni Bir Toplantıyı Akıllandırın</h2>
+<p class="text-primary-fixed mb-8 max-w-md">Ses kaydı yükleyin veya canlı toplantıya bağlanın. AI saniyeler içinde özetinizi hazırlasın.</p>
+<button class="flex items-center gap-3 bg-white text-on-primary-container px-8 py-4 rounded-xl font-bold hover:scale-105 transition-transform shadow-xl active:scale-95">
+<span class="material-symbols-outlined" data-icon="add_circle" style="font-variation-settings: 'FILL' 1;">add_circle</span>
+                        Yeni Toplantı Özetle
+                    </button>
+</div>
+<div class="absolute bottom-4 right-8 opacity-20 pointer-events-none">
+<span class="material-symbols-outlined text-[120px]" data-icon="psychology">psychology</span>
+</div>
+</div>
+</div>
+<!-- Recent Meetings Section -->
+<section>
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-xl font-bold tracking-tight text-on-surface">Son Toplantılar</h3>
+<button class="text-sm font-medium text-primary hover:underline">Tümünü Gör →</button>
+</div>
+<div class="space-y-4">
+<!-- Meeting Card 1 -->
+<div class="surface-container-low p-6 rounded-xl hover:bg-surface-container-high transition-colors flex items-center gap-6 group">
+<div class="w-12 h-12 bg-surface-container-highest rounded-lg flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="video_camera_front">video_camera_front</span>
+</div>
+<div class="flex-1">
+<h4 class="font-bold text-on-surface">Haftalık Senkronizasyon - Tasarım Ekibi</h4>
+<p class="text-sm text-slate-500 mt-1">Dün, 14:00 • 45 dakika</p>
+</div>
+<div class="hidden md:block max-w-xs text-sm text-slate-400">
+                        Q4 yol haritası ve tasarım sistemindeki yeni bileşenler tartışıldı...
+                    </div>
+<div class="flex items-center gap-4">
+<span class="px-3 py-1 bg-secondary/10 text-secondary text-xs font-bold rounded-full border border-secondary/20">Tamamlandı</span>
+<button class="p-2 hover:bg-surface-variant rounded-lg transition-colors">
+<span class="material-symbols-outlined text-slate-400" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Meeting Card 2 -->
+<div class="surface-container-low p-6 rounded-xl hover:bg-surface-container-high transition-colors flex items-center gap-6 group">
+<div class="w-12 h-12 bg-surface-container-highest rounded-lg flex items-center justify-center text-secondary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="record_voice_over">record_voice_over</span>
+</div>
+<div class="flex-1">
+<h4 class="font-bold text-on-surface">Müşteri Görüşmesi: Global Tech</h4>
+<p class="text-sm text-slate-500 mt-1">12 Ekim 2023, 10:30</p>
+</div>
+<div class="hidden md:block max-w-xs text-sm text-slate-400">
+                        API entegrasyonu maliyetleri ve zaman çizelgesi onaylandı...
+                    </div>
+<div class="flex items-center gap-4">
+<span class="px-3 py-1 bg-secondary/10 text-secondary text-xs font-bold rounded-full border border-secondary/20">Tamamlandı</span>
+<button class="p-2 hover:bg-surface-variant rounded-lg transition-colors">
+<span class="material-symbols-outlined text-slate-400" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Meeting Card 3 -->
+<div class="surface-container-low p-6 rounded-xl hover:bg-surface-container-high transition-colors flex items-center gap-6 group">
+<div class="w-12 h-12 bg-surface-container-highest rounded-lg flex items-center justify-center text-tertiary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+</div>
+<div class="flex-1">
+<h4 class="font-bold text-on-surface">Brainstorming: Yeni Ürün Özellikleri</h4>
+<p class="text-sm text-slate-500 mt-1">10 Ekim 2023, 16:00</p>
+</div>
+<div class="hidden md:block max-w-xs text-sm text-slate-400">
+                        Kullanıcı geri bildirimlerine dayalı 3 yeni AI modülü önerildi...
+                    </div>
+<div class="flex items-center gap-4">
+<span class="px-3 py-1 bg-secondary/10 text-secondary text-xs font-bold rounded-full border border-secondary/20">Tamamlandı</span>
+<button class="p-2 hover:bg-surface-variant rounded-lg transition-colors">
+<span class="material-symbols-outlined text-slate-400" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Floating Assistant Hint -->
+<div class="fixed bottom-8 right-8">
+<div class="glass px-6 py-4 rounded-2xl flex items-center gap-4 shadow-2xl border-primary/20">
+<div class="w-3 h-3 bg-secondary rounded-full animate-pulse shadow-[0_0_10px_#41eec2]"></div>
+<p class="text-sm font-medium text-slate-300">MeetSum AI şu an <span class="text-white">müsait</span> ve özetlemeye hazır.</p>
+</div>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,40 @@
+/* =============================================
+   MeetSum AI — Base Styles
+   ============================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-family);
+  background-color: var(--surface);
+  color: var(--on-surface);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+img, video, svg { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; font-size: inherit; color: inherit; }
+input, textarea, select { font-family: inherit; font-size: inherit; color: inherit; background: none; border: none; outline: none; }
+ul, ol { list-style: none; }
+h1,h2,h3,h4,h5,h6 { font-weight: 800; letter-spacing: -0.025em; line-height: 1.1; }
+::selection { background-color: var(--primary-container); color: var(--on-primary-container); }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--surface); }
+::-webkit-scrollbar-thumb { background: var(--outline-variant); border-radius: var(--radius-full); }
+
+#app { min-height: 100vh; }
+
+@keyframes fadeIn { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+@keyframes fadeInUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.5} }
+@keyframes slideDown { from{opacity:0;transform:translateY(-10px)} to{opacity:1;transform:translateY(0)} }
+@keyframes spin { to{transform:rotate(360deg)} }
+
+.animate-fade-in { animation: fadeIn .4s ease both; }
+.animate-fade-in-up { animation: fadeInUp .6s ease-out both; }
+.animate-pulse { animation: pulse 2s infinite; }
