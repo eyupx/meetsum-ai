@@ -241,32 +241,29 @@ Uc farkli yontem:
 
 ## Ekran Goruntuleri
 
-### Ana Sayfa (Landing Page)
-![Ana Sayfa](screenshots/landing_page_2026_g_ncellemesi.png)
+### Masaustu Gorunumleri
 
-### Giris Sayfasi
-![Giris](screenshots/login_page_footer_update.png)
+| Ana Sayfa | Giris | Kayit |
+|-----------|-------|-------|
+| ![Landing](screenshots/desktop_landing.png) | ![Login](screenshots/desktop_login.png) | ![Register](screenshots/desktop_register.png) |
 
-### Kayit Sayfasi
-![Kayit](screenshots/sign_up_with_navbar.png)
+| Dashboard | Yeni Toplanti | Toplantilarim |
+|-----------|---------------|---------------|
+| ![Dashboard](screenshots/desktop_dashboard.png) | ![New](screenshots/desktop_new_meeting.png) | ![Meetings](screenshots/desktop_meetings.png) |
 
-### Kontrol Paneli (Dashboard)
-![Dashboard](screenshots/dashboard_sidebar_fixed.png)
+| Profil | Ayarlar |
+|--------|---------|
+| ![Profile](screenshots/desktop_profile.png) | ![Settings](screenshots/desktop_settings.png) |
 
-### Yeni Toplanti Ozetleme
-![Yeni Toplanti](screenshots/yeni_toplant_g_ncellenmi_alt_kartlar.png)
+### Mobil Gorunumleri (iPhone 14 - 390x844)
 
-### Toplantilarim
-![Toplantilarim](screenshots/toplant_lar_m_synced.png)
+| Ana Sayfa | Giris | Kayit | Dashboard |
+|-----------|-------|-------|-----------|
+| ![Landing](screenshots/mobile_landing.png) | ![Login](screenshots/mobile_login.png) | ![Register](screenshots/mobile_register.png) | ![Dashboard](screenshots/mobile_dashboard.png) |
 
-### Ozet Sonucu ve Profil
-![Ozet](screenshots/toplant_zeti_sonucu_profil_sabitlendi.png)
-
-### Ayarlar
-![Ayarlar](screenshots/ayarlar_updated.png)
-
-### Profil
-![Profil](screenshots/profil_cretsiz_plan_g_ncellemesi.png)
+| Yeni Toplanti | Toplantilarim | Profil | Ayarlar |
+|---------------|---------------|--------|---------|
+| ![New](screenshots/mobile_new_meeting.png) | ![Meetings](screenshots/mobile_meetings.png) | ![Profile](screenshots/mobile_profile.png) | ![Settings](screenshots/mobile_settings.png) |
 
 ---
 

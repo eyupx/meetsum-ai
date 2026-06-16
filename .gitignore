@@ -7,3 +7,8 @@ uygulama/js/firebase-config.js
 
 # Temp files
 *.log
+node_modules/
+package.json
+package-lock.json
+teslim/
+take_screenshots.js
