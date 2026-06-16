@@ -108,7 +108,7 @@ function renderSidebar(activePage) {
     { id: 'profile', icon: 'person', labelKey: 'sidebar_profile' },
     { id: 'settings', icon: 'settings', labelKey: 'sidebar_settings' }
   ];
-  const isAdmin = AppState.profile?.role === 'admin';
+  const isAdmin = AppState.profile?.role === 'admin' || (typeof ADMIN_EMAILS !== 'undefined' && ADMIN_EMAILS.includes(AppState.user?.email?.toLowerCase()));
   return `
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-logo"><h1>MeetSum AI</h1><p>AI Executive</p></div>

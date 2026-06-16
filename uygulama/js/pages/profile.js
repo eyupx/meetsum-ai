@@ -1,7 +1,10 @@
-/* Profile Page */
+﻿/* Profile Page */
 async function renderProfilePage() {
   const app = document.getElementById('app');
   const user = AppState.profile || {};
+  // Fallback: Firebase Auth'tan bilgi al
+  if (!user.name && AppState.user?.displayName) user.name = AppState.user.displayName;
+  if (!user.email && AppState.user?.email) user.email = AppState.user.email;
   const meetings = getMeetings();
   const totalActions = meetings.reduce((s, m) => s + (m.eylem_maddeleri?.length || 0), 0);
   const now = new Date();
