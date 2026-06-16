@@ -255,18 +255,6 @@ Uc farkli yontem:
 |--------|---------|
 | ![Profile](screenshots/desktop_profile.png) | ![Settings](screenshots/desktop_settings.png) |
 
-### Mobil Gorunumleri (iPhone 14 - 390x844)
-
-| Ana Sayfa | Giris | Kayit | Dashboard |
-|-----------|-------|-------|-----------|
-| ![Landing](screenshots/mobile_landing.png) | ![Login](screenshots/mobile_login.png) | ![Register](screenshots/mobile_register.png) | ![Dashboard](screenshots/mobile_dashboard.png) |
-
-| Yeni Toplanti | Toplantilarim | Profil | Ayarlar |
-|---------------|---------------|--------|---------|
-| ![New](screenshots/mobile_new_meeting.png) | ![Meetings](screenshots/mobile_meetings.png) | ![Profile](screenshots/mobile_profile.png) | ![Settings](screenshots/mobile_settings.png) |
-
----
-
 ## Prompt Kutuphanesi
 
 Proje boyunca toplam **32 prompt** belgelenmistir. Detayli liste icin:
