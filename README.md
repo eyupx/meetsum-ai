@@ -1,12 +1,25 @@
 ﻿# MeetSum AI - Yapay Zeka Destekli Toplanti Ozetleme Platformu
 
-![MeetSum AI](https://img.shields.io/badge/MeetSum-AI-7C5CFF?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTEyIDJMMiA3bDEwIDVMMjIgN3oiIGZpbGw9IndoaXRlIi8+PC9zdmc+)
-![License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)
-![Status](https://img.shields.io/badge/status-Active-brightgreen?style=for-the-badge)
+[![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![Firebase](https://img.shields.io/badge/Firebase-Auth%20%2B%20Firestore-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)](https://firebase.google.com/)
+[![Groq](https://img.shields.io/badge/Groq-Llama%203.3%20%2B%20Whisper-7C5CFF?style=for-the-badge)](https://groq.com/)
+[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 
 ---
 
-## 5.1. Proje Ozeti
+## Ogrenci Bilgileri
+
+| Bilgi | Detay |
+|-------|-------|
+| **Ad Soyad** | Eyup Ensar Acar |
+| **Ogrenci No** | 24010501093 |
+| **Ders** | PP214 / BTE208 - Yapay Zeka Destekli Urun Tasarimi ve Gelistirme |
+| **Donem** | 2025-2026 Bahar |
+| **GitHub** | [github.com/eyupx/meetsum-ai](https://github.com/eyupx/meetsum-ai) |
+
+---
+
+## Proje Amaci ve Aciklamasi
 
 **MeetSum AI**, toplanti metinlerini ve ses kayitlarini yapay zeka ile analiz ederek otomatik ozet, eylem maddeleri, karar takibi ve anahtar konu cikarimi yapan bir web uygulamasidir.
 
@@ -31,32 +44,46 @@ MeetSum AI, toplanti metinlerini ve ses dosyalarini LLM (Buyuk Dil Modeli) tekno
 - Dark/Light tema destegi
 - Responsive tasarim (masaustu, tablet, mobil)
 
-### Hedef Kullanici Kitlesi
-- Proje yoneticileri
-- Ekip liderleri
-- Universite ogrencileri (grup calismalari)
-- Uzaktan calisan ekipler
+---
+
+## Kullanilan Teknolojiler ve Kutuphaneler
+
+### AI / Yapay Zeka
+
+| Teknoloji | Kullanim Amaci |
+|-----------|---------------|
+| **Groq API (Llama 3.3 70B)** | Toplanti metinlerini analiz edip JSON formatinda ozet, eylem maddesi, karar ve anahtar konu cikarimi |
+| **Groq Whisper API (whisper-large-v3-turbo)** | Ses dosyalarindan (MP3, WAV, M4A) Turkce metin cikarma |
+| **Google Antigravity (Claude)** | Kod uretimi, gelistirme ve debug surecinde AI destekli programlama |
+| **Google Stitch** | UI/UX arayuz tasarimi ve ekran taslaklari olusturma |
+
+### Frontend
+
+| Teknoloji | Kullanim Amaci |
+|-----------|---------------|
+| **HTML5** | Sayfa yapisi ve semantik elemanlar |
+| **CSS3** | Glassmorphism, gradient, dark/light tema, responsive tasarim |
+| **Vanilla JavaScript (ES6+)** | SPA router, DOM manipulasyonu, API entegrasyonu |
+
+### Backend / Servisler
+
+| Teknoloji | Kullanim Amaci |
+|-----------|---------------|
+| **Firebase Authentication** | Google OAuth + E-posta/Sifre ile kimlik dogrulama |
+| **Firebase Firestore** | NoSQL bulut veritabani (toplanti CRUD islemleri) |
+| **PowerShell HTTP Server** | Yerel gelistirme sunucusu |
+
+### Kutuphaneler
+
+| Kutuphane | Versiyon | Kullanim Amaci |
+|-----------|----------|---------------|
+| **mammoth.js** | 1.4.21 | DOCX dosyalarindan metin cikarma |
+| **pdf.js** | 2.16.105 | PDF dosyalarindan metin cikarma |
+| **Firebase SDK** | 10.12.2 | Auth, Firestore islemleri |
 
 ---
 
-## 5.2. Kullanilan AI Araclari
-
-| Arac | Kullanim Amaci | Detay |
-|------|---------------|-------|
-| **Groq API (Llama 3.3 70B)** | Toplanti ozetleme (runtime AI) | Metin analizi, JSON cikti uretimi, eylem maddesi cikarimi |
-| **Groq Whisper API** | Ses transkripti (runtime AI) | whisper-large-v3-turbo modeli ile MP3/WAV/M4A'dan Turkce metin cikarma |
-| **Antigravity** | Kod uretimi ve gelistirme | AI destekli prototipleme platformu |
-| **Google Stitch** | Arayuz tasarimi | UI mockup ve ekran taslaklari |
-| **Firebase** | Kimlik dogrulama ve veritabani | Auth (Google + E-posta) + Firestore |
-
-### AI Modeli Detaylari
-- **Ozetleme Modeli:** Llama 3.3 70B Versatile (Meta)
-- **Ses Tanima Modeli:** Whisper Large V3 Turbo (OpenAI)
-- **Altyapi:** Groq Cloud (dusuk gecikme suresi ile LLM inference)
-- **API Formati:** OpenAI uyumlu REST API
-- **Cikti Formati:** Yapilandirilmis JSON (ozet, eylem maddeleri, kararlar, anahtar konular)
-
-### AI Is Akisi
+## AI Is Akisi (Pipeline)
 
 ```
 Ses Dosyasi (MP3/WAV/M4A)
@@ -70,6 +97,7 @@ Manuel Metin Girisi ----------------+        |
                                     |        |
                                     v        v
                           Groq Llama 3.3 70B API
+                          (System + User Prompt)
                                     |
                                     v
                           JSON Cikti:
@@ -84,55 +112,183 @@ Manuel Metin Girisi ----------------+        |
 
 ---
 
-## 5.3. Prompt Kutuphanesi
+## Proje Klasor Yapisi
 
-### 1. Toplanti Ozetleme - System Prompt (Runtime)
+```
+meetsum-ai/
++-- README.md                         # Proje dokumantasyonu
++-- .gitignore                        # Hassas dosya korumasi
++-- screenshots/                      # Ekran goruntuleri
++-- gerekli_dosyalar/
+|   +-- 01_konsept/                   # Konsept gelistirme dokumanlari
+|   |   +-- gorev1_konsept_gelistirme.md
+|   +-- 02_stitch_promptlari/         # Prompt gunlugu
+|   |   +-- prompt_logbook_v2.md      # 32 prompt kaydi
+|   +-- 03_yonerge/                   # Ders yonergesi (10 gorsel)
+|   +-- 04_stitch_html_export/        # Stitch tasarim export'lari (9 sayfa)
++-- uygulama/
+    +-- index.html                    # SPA giris noktasi
+    +-- server.ps1                    # PowerShell HTTP sunucusu
+    +-- .gitignore                    # API key korumasi
+    +-- css/
+    |   +-- variables.css             # Tasarim sistemi degiskenleri
+    |   +-- base.css                  # Temel stiller
+    |   +-- components.css            # Bilesen stilleri
+    |   +-- pages.css                 # Sayfa stilleri
+    +-- js/
+        +-- app.js                    # SPA router, AI entegrasyonu, prompt muhendisligi
+        +-- api-config.js             # API anahtarlari (gitignore ile korunuyor)
+        +-- api-config.example.js     # API anahtar sablonu
+        +-- firebase-config.js        # Firebase yapilandirmasi (gitignore ile korunuyor)
+        +-- firebase-config.example.js # Firebase sablon dosyasi
+        +-- i18n.js                   # Coklu dil destegi (TR/EN)
+        +-- pages/
+            +-- landing.js            # Ana sayfa
+            +-- login.js              # Giris sayfasi
+            +-- register.js           # Kayit sayfasi
+            +-- forgot.js             # Sifremi unuttum
+            +-- dashboard.js          # Kontrol paneli
+            +-- new-meeting.js        # Yeni toplanti ozetleme
+            +-- meetings.js           # Toplantilarim listesi
+            +-- summary.js            # Ozet detay sayfasi
+            +-- profile.js            # Kullanici profili
+            +-- settings.js           # Uygulama ayarlari
+            +-- auxiliary.js          # Gizlilik, Kosullar, Iletisim, 404
+```
+
+---
+
+## Kurulum Adimlari
+
+### Gereksinimler
+- Modern web tarayicisi (Chrome, Firefox, Edge)
+- PowerShell (Windows)
+- Internet baglantisi (Firebase + Groq API icin)
+- [Node.js](https://nodejs.org/) (opsiyonel)
+
+### 1. Repoyu Klonlayin
+```bash
+git clone https://github.com/eyupx/meetsum-ai.git
+cd meetsum-ai/uygulama
+```
+
+### 2. API Anahtarlarini Yapilandirin
+
+#### Groq API (AI Ozetleme + Ses Tanima)
+```bash
+# Sablon dosyasini kopyalayin
+cp js/api-config.example.js js/api-config.js
+```
+
+`js/api-config.js` dosyasini acin ve Groq API anahtarinizi girin:
+```javascript
+var GROQ_API_KEY = 'BURAYA_GROQ_API_ANAHTARINIZI_GIRIN';
+var GROQ_API_URL = 'https://api.groq.com/openai/v1/chat/completions';
+var GROQ_AUDIO_URL = 'https://api.groq.com/openai/v1/audio/transcriptions';
+```
+
+> Groq API anahtari almak icin: [console.groq.com](https://console.groq.com) adresine gidin ve ucretsiz hesap olusturun.
+
+#### Firebase (Auth + Veritabani)
+```bash
+cp js/firebase-config.example.js js/firebase-config.js
+```
+
+`js/firebase-config.js` dosyasina Firebase proje bilgilerinizi girin.
+
+> Firebase projesi olusturmak icin: [console.firebase.google.com](https://console.firebase.google.com)
+
+### 3. Sunucuyu Baslatin
+```powershell
+powershell -ExecutionPolicy Bypass -File server.ps1
+```
+
+### 4. Tarayicida Acin
+```
+http://localhost:8080
+```
+
+---
+
+## Calistirma / Kullanim Talimatlari
+
+### 1. Kayit ve Giris
+- E-posta + sifre ile kayit olun veya Google hesabinizla giris yapin
+
+### 2. Yeni Toplanti Ozeti Olusturma
+Uc farkli yontem:
+- **Metin Yapistirma:** Toplanti metnini dogrudan metin alanina yapistiriniz
+- **Dosya Yukleme:** TXT, DOCX veya PDF dosyasi yukleyin
+- **Ses Dosyasi:** MP3, WAV veya M4A ses dosyasi yukleyin (otomatik transkript)
+
+### 3. AI ile Ozetleme
+- "AI ile Ozetle" butonuna tiklayin
+- Sistem metni analiz edip ozet, eylem maddeleri, kararlar ve anahtar konulari cikarir
+
+### 4. Ozet Yonetimi
+- **PDF Indir:** Ozeti PDF olarak indirin
+- **Kopyala:** Panoya kopyalayin
+- **Paylas:** Web Share API ile paylasin
+- **Sil:** Toplantiyi veritabanindan kaldirin
+
+### 5. Ayarlar
+- Dark/Light tema degistirme
+- Turkce/Ingilizce dil degistirme
+- Ozet uzunlugu ayarlama (kisa/orta/detayli)
+- Bildirim tercihleri
+
+---
+
+## Ekran Goruntuleri
+
+### Ana Sayfa (Landing Page)
+![Ana Sayfa](screenshots/landing_page_2026_g_ncellemesi.png)
+
+### Giris Sayfasi
+![Giris](screenshots/login_page_footer_update.png)
+
+### Kayit Sayfasi
+![Kayit](screenshots/sign_up_with_navbar.png)
+
+### Kontrol Paneli (Dashboard)
+![Dashboard](screenshots/dashboard_sidebar_fixed.png)
+
+### Yeni Toplanti Ozetleme
+![Yeni Toplanti](screenshots/yeni_toplant_g_ncellenmi_alt_kartlar.png)
+
+### Toplantilarim
+![Toplantilarim](screenshots/toplant_lar_m_synced.png)
+
+### Ozet Sonucu ve Profil
+![Ozet](screenshots/toplant_zeti_sonucu_profil_sabitlendi.png)
+
+### Ayarlar
+![Ayarlar](screenshots/ayarlar_updated.png)
+
+### Profil
+![Profil](screenshots/profil_cretsiz_plan_g_ncellemesi.png)
+
+---
+
+## Prompt Kutuphanesi
+
+Proje boyunca toplam **32 prompt** belgelenmistir. Detayli liste icin:
+[prompt_logbook_v2.md](gerekli_dosyalar/02_stitch_promptlari/prompt_logbook_v2.md)
+
+### Ozetleme System Prompt (Ornek)
 ```
 Sen profesyonel bir toplanti ozetleme asistanisin.
 
-TERIM DUZELTMESI: Metin icinde Midsum, Mitsam, mid-sum gibi hatali
-duyulmus kelimeler varsa bunlari her zaman MeetSum AI olarak duzelt.
+TERIM DUZELTMESI: Metin icinde Midsum, Mitsam gibi hatali duyulmus
+kelimeler varsa bunlari her zaman MeetSum AI olarak duzelt.
 
-KONUSMACI AYIRIMI (COK ONEMLI): Bir cumlede birinin adi geciyorsa o kisi
-gorevli DEGIL olabilir. Hitap edilen kisi ile konusan kisiyi karistirma.
-Ornegin: "Selam Eyup, ben bunu yarina cozecegim" diyorsa, gorevi ustlenen
-konusan kisidir, Eyup DEGILDIR cunku Eyup'e hitap edilmektedir.
-
-EKSIKSIZ CIKARIM: Toplanti sonundaki teknik detaylari (veritabani, sunucu
-yedekleme vb.) is halledilmis bile olsa Alinan Kararlar arasina mutlaka ekle.
+KONUSMACI AYIRIMI: Bir cumlede birinin adi geciyorsa o kisi gorevli
+DEGIL olabilir. Hitap edilen kisi ile konusan kisiyi karistirma.
 
 SADECE gecerli JSON dondur, baska hicbir sey yazma.
 ```
 
-### 2. Toplanti Ozetleme - User Prompt (Runtime)
-```
-Asagidaki toplanti metnini analiz et ve JSON formatinda yanit ver.
-
-Kurallar:
-- [Ozet uzunlugu ayarina gore dinamik: kisa/orta/detayli]
-- Eylem maddelerini cikar (gorev, sorumlu kisi, tarih/sure).
-  KONUSMACI AYIRIMI: Hitap edilen kisi gorevi yapan kisi degildir.
-  Gorevi fiil eklerinden anla: yapacagim, cozerim = konusan kisi ustleniyor.
-  Konusan kisinin ismi metinde yoksa sorumlu olarak "Belirtilmedi" yaz.
-- Alinan kararlari listele.
-- 3-5 anahtar konu cikar.
-
-KRITIK UYARI - SORUMLU ATAMA KURALI:
-"Selam [isim]" veya "[isim] araya giriyorum" ifadesindeki isim
-konusan kisi DEGILDIR, konusulan kisidir.
-
-JSON formati:
-{"ozet": "...", "eylem_maddeleri": [...], "kararlar": [...], "anahtar_konular": [...]}
-```
-
-### 3. Whisper Ses Tanima Prompt'u
-```
-Bu bir MeetSum AI toplanti kaydidir. Konusmacilar MeetSum AI projesini
-tartisiyor. Ozel isimler: MeetSum AI, responsive, token, Firebase,
-Firestore, Whisper, Groq.
-```
-
-### 4. Prompt Iyilestirme Sureci
+### Prompt Iyilestirme Sureci
 Konusmaci karmasasi sorununu cozmek icin 3 asamali prompt muhendisligi uygulanmistir:
 
 | Asama | Yontem | Sonuc |
@@ -141,131 +297,47 @@ Konusmaci karmasasi sorununu cozmek icin 3 asamali prompt muhendisligi uygulanmi
 | 2 | User Prompt'a da kural ekleme | Duzelmedi |
 | 3 | Metnin ustune KRITIK UYARI ekleme | Kismi basari (%66) |
 
-Detayli prompt gecmisi icin: `02_stitch_promptlari/prompt_logbook_v2.md`
+---
+
+## Guvenlik
+
+- API anahtarlari `.gitignore` ile korunmaktadir ve GitHub'a yuklenmez
+- Sablon dosyalar (`api-config.example.js`, `firebase-config.example.js`) mevcuttur
+- GitHub Secret Scanning ile dogrulanmistir: **"No secrets found"**
 
 ---
 
-## 5.4. Kurulum ve Calistirma
+## Gelecek Vizyonu
 
-### Gereksinimler
-- Modern web tarayicisi (Chrome, Firefox, Edge)
-- PowerShell (Windows)
-- Internet baglantisi (Firebase Auth + Groq API)
-
-### Kurulum
-
-1. **Repoyu klonlayin:**
-```bash
-git clone https://github.com/[kullanici]/meetsum-ai.git
-cd meetsum-ai/uygulama
-```
-
-2. **API anahtarini yapilandirin:**
-```bash
-# js/api-config.example.js dosyasini kopyalayin
-cp js/api-config.example.js js/api-config.js
-# Kendi Groq API anahtarinizi girin
-```
-
-3. **Sunucuyu baslatin:**
-```powershell
-powershell -ExecutionPolicy Bypass -File server.ps1
-```
-
-4. **Tarayicida acin:**
-```
-http://localhost:8080
-```
-
-### API Anahtari Alma
-1. [console.groq.com](https://console.groq.com) adresine gidin
-2. Ucretsiz hesap olusturun
-3. API Keys > Create API Key
-4. Anahtari `js/api-config.js` dosyasina yapisirin
-
-> **Not:** API anahtarlari `.gitignore` ile korunmaktadir ve GitHub'a yuklenmez.
+- [ ] Speaker Diarization (konusmaci ayristirma)
+- [ ] Coklu dil genislemesi (Ingilizce + Turkce disinda)
+- [ ] Toplanti karsilastirma (haftalik ilerleme takibi)
+- [ ] Ekip paylasimi
+- [ ] Zoom/Meet/Teams entegrasyonu
+- [ ] Mobil uygulama (iOS/Android)
 
 ---
 
-## 5.5. Gelecek Vizyonu
+## GitHub Proje Baglantisi
 
-- **Speaker Diarization:** Ses dosyalarindan konusmaci ayristirma (SPEAKER_00, SPEAKER_01 etiketleri)
-- **Coklu dil genislemesi:** Ingilizce ve Turkce disinda ek diller
-- **Toplanti karsilastirma:** Haftalik toplantilar arasi ilerleme takibi
-- **Ekip paylasimi:** Toplanti ozetlerini ekip uyeleriyle paylasma
-- **Zoom/Meet/Teams entegrasyonu:** Platform kayitlarindan otomatik ozetleme
-- **Mobil uygulama:** iOS ve Android icin native uygulama
+**https://github.com/eyupx/meetsum-ai**
 
 ---
 
-## Proje Yapisi
+## Kaynakca ve Yararlanilan Baglantilar
 
-```
-meetsum-ai/
-+-- gerekli_dosyalar/
-|   +-- 01_konsept/               # Konsept gelistirme dokumanlari
-|   +-- 02_stitch_promptlari/     # Prompt gunlugu (32 prompt)
-|   +-- 03_yonerge/               # Ders yonergesi
-|   +-- 04_stitch_html_export/    # Tasarim export'lari
-+-- uygulama/
-|   +-- index.html                # SPA giris noktasi
-|   +-- css/
-|   |   +-- variables.css         # Tasarim sistemi degiskenleri
-|   |   +-- base.css              # Temel stiller
-|   |   +-- components.css        # Bilesen stilleri
-|   |   +-- pages.css             # Sayfa stilleri
-|   +-- js/
-|   |   +-- app.js                # SPA router, AI entegrasyonu
-|   |   +-- api-config.js         # API anahtarlari (gitignore'da)
-|   |   +-- api-config.example.js # API anahtar sablonu
-|   |   +-- firebase-config.js    # Firebase yapilandirmasi
-|   |   +-- i18n.js               # Coklu dil destegi (TR/EN)
-|   |   +-- pages/                # Sayfa bilesenleri
-|   |       +-- landing.js        # Ana sayfa
-|   |       +-- login.js          # Giris
-|   |       +-- register.js       # Kayit
-|   |       +-- forgot.js         # Sifremi unuttum
-|   |       +-- dashboard.js      # Kontrol paneli
-|   |       +-- new-meeting.js    # Yeni toplanti ozetleme
-|   |       +-- meetings.js       # Toplantilarim
-|   |       +-- summary.js        # Ozet detay
-|   |       +-- profile.js        # Profil
-|   |       +-- settings.js       # Ayarlar
-|   |       +-- auxiliary.js      # Yardim, Iletisim, 404
-|   +-- .env                      # Ortam degiskenleri (gitignore'da)
-|   +-- .gitignore                # Hassas dosya korumasi
-|   +-- server.ps1                # Yerel gelistirme sunucusu
-+-- README.md
-```
-
----
-
-## Teknolojiler
-
-| Katman | Teknoloji |
-|--------|-----------|
-| Frontend | HTML5, CSS3, Vanilla JavaScript (SPA) |
-| AI / LLM | Groq API - Llama 3.3 70B Versatile |
-| Ses Tanima | Groq Whisper API - whisper-large-v3-turbo |
-| Dosya Isleme | mammoth.js (DOCX), pdf.js (PDF) |
-| Auth | Firebase Authentication (Google + E-posta) |
-| Veritabani | Firebase Firestore |
-| Sunucu | PowerShell HTTP Server (gelistirme) |
-| i18n | Ozel coklu dil sistemi (TR/EN) |
-
----
-
-## Degerlendirme Kriterleri Karsilama
-
-| Kriter | Puan | Karsilama |
-|--------|------|-----------|
-| Konsept Kalitesi | 10 | Problem tanimi, kullanici profili, MVP ozellikleri belgelenmistir |
-| Prompt Muhendisligi | 20 | 32 prompt belgelendi, 3 asamali iyilestirme sureci, runtime system/user prompt |
-| AI Arac Entegrasyonu | 20 | Groq API (Llama 3.3 + Whisper), Antigravity, Firebase, Stitch |
-| Gorsel Tasarim | 10 | Modern glassmorphism UI, dark/light tema, responsive tasarim |
-| Prototip Calisabilirligi | 20 | Tam calisan SPA: auth, CRUD, AI ozetleme, dosya/ses yukleme, PDF export |
-| GitHub ve Dokumantasyon | 10 | README, .gitignore, .env, prompt gunlugu, proje yapisi |
-| Yaraticilik | 10 | AI toplanti asistani, ses transkripti, prompt muhendisligi optimizasyonu |
+| Kaynak | Baglanti |
+|--------|----------|
+| Groq API Dokumantasyonu | [console.groq.com/docs](https://console.groq.com/docs) |
+| Llama 3.3 70B Model | [ai.meta.com/llama](https://ai.meta.com/llama/) |
+| Whisper (OpenAI) | [openai.com/research/whisper](https://openai.com/research/whisper) |
+| Firebase Dokumantasyonu | [firebase.google.com/docs](https://firebase.google.com/docs) |
+| mammoth.js (DOCX) | [github.com/mwilliamson/mammoth.js](https://github.com/mwilliamson/mammoth.js) |
+| pdf.js (Mozilla) | [mozilla.github.io/pdf.js](https://mozilla.github.io/pdf.js/) |
+| Google Antigravity | [antigravity.dev](https://antigravity.dev) |
+| Google Stitch | [stitch.withgoogle.com](https://stitch.withgoogle.com) |
+| MDN Web Docs | [developer.mozilla.org](https://developer.mozilla.org/) |
+| SPA Router Pattern | [developer.mozilla.org/en-US/docs/Web/API/History_API](https://developer.mozilla.org/en-US/docs/Web/API/History_API) |
 
 ---
 
@@ -274,5 +346,6 @@ meetsum-ai/
 Bu proje egitim amacli gelistirilmistir.
 
 **Gelistirici:** Eyup Ensar Acar
+**Ogrenci No:** 24010501093
 **Ders:** PP214 / BTE208 - Yapay Zeka Destekli Urun Tasarimi ve Gelistirme
-**Donem:** 2026 Bahar
+**Donem:** 2025-2026 Bahar
